@@ -14,7 +14,7 @@ form.addEventListener('submit', (event) => {
     createUI(datas, ul);
 });
 
-function handleEdit(event, info, i, label) {
+function handleEdit(event, info, idx, label) {
     let elm = event.target;
     let input = document.createElement('input');
     input.value = info;
@@ -22,7 +22,7 @@ function handleEdit(event, info, i, label) {
     input.addEventListener('keyup', (e) => {
         if(e.keyCode === 13) {
             let updated = e.target.value;
-            datas[i][label] = updated;
+            datas[idx][label] = updated;
             createUI();
             localStorage.setItem('cards', JSON.stringify(datas));
         }
@@ -30,7 +30,7 @@ function handleEdit(event, info, i, label) {
 
     input.addEventListener('blur', (e) => {
         let updated = e.target.value;
-        datas[i][label] = updated;
+        datas[idx][label] = updated;
         createUI();
         localStorage.setItem('cards', JSON.stringify(datas));
     });
